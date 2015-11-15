@@ -55,31 +55,84 @@
 				</section>
 
 				<section>
-					<h2>What is an abstract syntax tree?</h2>
-					<p>An AST is usually the result of the syntax analysis phase of a compiler. It often serves as an intermediate representation of the program through several stages that the compiler requires, and has a strong impact on the final output of the compiler.</p>
-					<p>[Show where an AST is produced in ruby's lifecycle]</p>
-					<p>[How does it look like?]</p>
-					<p>[The syntax is "abstract" in not representing every detail appearing in the real syntax.]</p>
-					<p>[An AST is not specific to ruby]</p>
-					<p>[An AST consists of SEXPs]</p>
-					<p>[What are SEXPs?]</p>
+					<h2>How are programs run?</h2>
+					<p>
+					  ...overview of the whole tokenizer, lexer, parser, interpreter chain
+					</p>
+				</section>
+
+
+				<section>
+					<h2>Tokenizer?</h2>
+					<p>
+					  # Show "def foo; end" -> tokenizer
+					</p>
 				</section>
 
 				<section>
-					<h2>Things you can do with the AST</h2>
-					<h3>Detecting smells / reek</h3>
+					<h2>Lexer?</h2>
+					<p>
+					  # Show "def foo; end" -> Lexer
+					</p>
 				</section>
 
 				<section>
-					<h2>Things you can do with the AST</h2>
-					<h3>Autocorrecting syntax / rubocop</h3>
+					<h2>Parser?</h2>
+					<p>
+					  # Show "def foo; end" -> Parser
+					</p>
 				</section>
 
 				<section>
-					<h2>Things you can do with the AST</h2>
-					<h3>Changing code / Mutant</h3>
+					<h2>Interpreter?</h2>
+					<p>
+					  # Show "def foo; end" -> Bytecode -> Interpreter
+					</p>
 				</section>
 
+				<section>
+					<h2>Today's topic: The abstract syntax tree</h2>
+
+					<p> # Show AST again</p>
+					<p> # The syntax is "abstract" in not representing every detail appearing in the real syntax.</p>
+					<p> # An AST is not specific to ruby</p>
+					<p> # An AST consists of SEXPs</p>
+				</section>
+
+				<section>
+					<h2>What are SEXPs?</h2>
+
+					<p> # Explain lisp history</p>
+				</section>
+
+				<section>
+					<h2>What can you do with an AST?</h2>
+					<p> # Detect and fix syntax (rubocop) </p>
+					<p> # convert syntax (synvert) </p>
+				</section>
+
+				<section>
+					<h2>What can you do with an AST?</h2>
+					<p> # Detect high level smells </p>
+					<p> # What is a smell? </p>
+					<p> # Reek </p>
+				</section>
+
+				<section>
+					<h2>What can you do with an AST?</h2>
+					<p> # mutation testing (mutant) </p>
+				</section>
+
+				<section>
+					<h2>Wishlist</h2>
+					<p> # String#to_ast </p>
+					<p> # AST#compile </p>
+				</section>
+
+				<section>
+					<h2> # Maybe</h2>
+					<p> # Clojure? </p>
+				</section>
 			</div>
 
 		</div>
