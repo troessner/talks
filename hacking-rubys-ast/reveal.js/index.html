@@ -41,8 +41,8 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Exploiting Ruby's abstract syntax tree for fun and for profit</h1>
-					<h2>A love story in 3 chapters</h2>
+					<h1>Exploiting Ruby's abstract syntax tree</h1>
+					<h3>A love story in 3 chapters</h2>
 				</section>
 
 				<section>
@@ -55,9 +55,12 @@
 				</section>
 
 				<section>
-					<h2>How are programs run?</h2>
+					<h2>How does Ruby run your program??</h2>
 					<p>
-					  ...overview of the whole tokenizer, lexer, parser, interpreter chain
+						# TODO: How do Rubinius and Jruby do that? Should be the same
+					  # Show overview of the whole tokenizer, lexer, parser, interpreter chain
+					  # as a gradually revealed slide show of the diagram:
+					  # "def foo; end" -> Tokenizer  -> ...tokens... -> Lexer  -> ... -> Parser  -> ...SEXPs... -> Bytecode (who create this?) -> Interpreter
 					</p>
 				</section>
 
