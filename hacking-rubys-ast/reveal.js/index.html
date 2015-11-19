@@ -97,7 +97,17 @@
 					<h2>Today's topic: The abstract syntax tree</h2>
 
 					<p> # Show AST again</p>
-					<p> # The syntax is "abstract" in not representing every detail appearing in the real syntax.</p>
+					<p> # From the Rubinius docs:
+							Note that the following if expression:
+
+							rbx compile -S -e ":foo if :bar"
+							[:script, [:if, [:lit, :bar], [:lit, :foo], nil]]
+							and the same if expression but written differently
+
+							rbx compile -S -e "if :bar then :foo; end"
+							[:script, [:if, [:lit, :bar], [:lit, :foo], nil]]
+							produce exactly the same syntax tree. Because the tree doesn't represent every detail that appears in the real syntax it is called "abstract".
+					</p>
 					<p> # An AST is not specific to ruby</p>
 					<p> # An AST consists of SEXPs</p>
 				</section>
