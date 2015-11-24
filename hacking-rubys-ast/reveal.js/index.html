@@ -50,7 +50,8 @@
 					<ul>
 					  <li>Timo Rößner</li>
 					  <li>Berlin, Germany</li>
-					  <li>Working for Blacklane</li>
+					  <li>Director of Engineering @ Blacklane</li>
+					  <li>Part of the <a href="https://github.com/troessner/reek">Reek</a> and <a href="https://github.com/whitesmith/rubycritic">RubyCritic</a> core team</li>
 					</ul>
 				</section>
 
@@ -127,6 +128,11 @@
 				<section>
 					<h2>How to exploit an AST - chapter 1</h2>
 					<h3>How does rubocop do this?</h3>
+					<ul>
+					  <li><a href="https://github.com/bbatsov/rubocop/blob/master/lib/rubocop/processed_source.rb#L100">uses the parser gem</a></li>
+					  <li><a href="https://github.com/bbatsov/rubocop/blob/master/lib/rubocop/processed_source.rb#L89">builds up an AST</a></li>
+					  <li><a href="https://github.com/bbatsov/rubocop/blob/master/lib/rubocop/runner.rb#L190">Passes this AST to each cop</a></li>
+          </ul>
 				</section>
 
 
