@@ -61,49 +61,73 @@
 				  <p class="fragment">How does a computer run your program?</p>
 				</section>
 
-				<!-- Status quo -->
+				<section>
+					<h2>Or, to put it differently...</h2>
+			    <p>what happens between</p>
+			    <pre><code>
+		        def foo
+		          puts 'hola!'
+		        end
+			    </code></pre>
+			    <p>and</p>
+			    <pre>
+			    pry(main)> foo
+						hola!
+			    </pre>
+			    <p>?</p>
+				</section>
 
 				<section>
-					<h2>How does Ruby run your program??</h2>
-					<p>
-						# TODO: How do Rubinius and Jruby do that? Should be the same
-					  # Show overview of the whole tokenizer, lexer, parser, interpreter chain
-					  # as a gradually revealed slide show of the diagram:
-					  # "def foo; end" -> Tokenizer  -> ...tokens... -> Lexer  -> ... -> Parser  -> ...SEXPs... -> Bytecode (who create this?) -> Interpreter
-					</p>
+					<h2>Stage 1: Tokenization</h2>
+			    <p>...is the process of breaking a stream of text up into words, phrases, symbols, or other meaningful elements called tokens</p>
+			    <pre>
+			    pry(main)> Ripper.tokenize "def foo; 'hola!'; end"
+					=> ["def", " ", "foo", ";", " ", "'", "hola!", "'", ";", " ", "end"]
+			    </pre>
+				</section>
+
+				<section>
+					<h2>Stage 2: Lexing</h2>
+			    <p>...is the process of giving meaning to these tokens</p>
+			    <pre>
+					pry(main)> Ripper.lex "def foo; 'hola!'; end"
+					=> [[[1, 0], :on_kw, "def"],
+					 [[1, 3], :on_sp, " "],
+					 [[1, 4], :on_ident, "foo"],
+					 [[1, 7], :on_semicolon, ";"],
+					 [[1, 8], :on_sp, " "],
+					 [[1, 9], :on_tstring_beg, "'"],
+					 [[1, 10], :on_tstring_content, "hola!"],
+					 [[1, 15], :on_tstring_end, "'"],
+					 [[1, 16], :on_semicolon, ";"],
+					 [[1, 17], :on_sp, " "],
+					 [[1, 18], :on_kw, "end"]]
+			    </pre>
+				</section>
+
+				<section>
+					<h2>Stage 3: Parsing</h2>
+			    <p>...is the process of taking those tokens and creates an abstract syntax tree</p>
+			    <pre>
+			    pry(main)> Ripper.sexp "def foo; 'hola!'; end"
+					=> TODO
+			    </pre>
+				</section>
+
+				<section>
+					<h2>Stage 4: Compiling</h2>
+			    <p>...takes the AST and turns this into instruction sequences for the Ruby VM</p>
 				</section>
 
 
 				<section>
-					<h2>Tokenizer?</h2>
-					<p>
-					  # Show "def foo; end" -> tokenizer
-					</p>
+					<h2>So, ASTs?</h2>
+			    <p>Consist of SEXPs</p>
+			    <p>TODO: Explain SEXPs</p>
 				</section>
 
 				<section>
-					<h2>Lexer?</h2>
-					<p>
-					  # Show "def foo; end" -> Lexer
-					</p>
-				</section>
-
-				<section>
-					<h2>Parser?</h2>
-					<p>
-					  # Show "def foo; end" -> Parser
-					</p>
-				</section>
-
-				<section>
-					<h2>Interpreter?</h2>
-					<p>
-					  # Show "def foo; end" -> Bytecode -> Interpreter
-					</p>
-				</section>
-
-				<section>
-					<h2>Today's topic: The abstract syntax tree</h2>
+					<h2>Why "abstract"?</h2>
 
 					<p> # Show AST again</p>
 					<p> # From the Rubinius docs:
@@ -117,14 +141,6 @@
 							[:script, [:if, [:lit, :bar], [:lit, :foo], nil]]
 							produce exactly the same syntax tree. Because the tree doesn't represent every detail that appears in the real syntax it is called "abstract".
 					</p>
-					<p> # An AST is not specific to ruby</p>
-					<p> # An AST consists of SEXPs</p>
-				</section>
-
-				<section>
-					<h2>What are SEXPs?</h2>
-
-					<p> # Explain lisp history</p>
 				</section>
 
 				<section>
